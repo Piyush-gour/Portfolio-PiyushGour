@@ -134,7 +134,7 @@ const Hero = () => {
                         {/* Expanding Background Ripple */}
                         <div className="absolute right-[6px] top-[6px] w-10 h-10 bg-slate-900 dark:bg-white rounded-full scale-0 opacity-0 group-hover:scale-[18] group-hover:opacity-100 transition-all duration-[800ms] ease-out z-0"></div>
 
-                        <span className="text-[16px] sm:text-[17px] font-medium tracking-wide relative z-10 transition-colors duration-[600ms] group-hover:text-white dark:group-hover:text-black">let's Connect</span>
+                        <span className="text-[14px] sm:text-[15px] font-normal tracking-wide relative z-10 transition-colors duration-[600ms] group-hover:text-white dark:group-hover:text-black">Let's Connect</span>
 
                         <div className="bg-slate-900 dark:bg-[#e2e2e5] group-hover:bg-transparent rounded-full ml-2 w-10 h-10 flex items-center justify-center transition-all duration-[600ms] ease-out relative z-10 shrink-0">
                             <ArrowRight size={20} className="text-white dark:text-black group-hover:text-white dark:group-hover:text-black transition-all duration-[600ms] ease-out" />
