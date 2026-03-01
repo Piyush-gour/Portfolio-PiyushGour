@@ -55,19 +55,6 @@ To run this project on your local machine:
 
 5. Open your browser and visit `http://localhost:5173`.
 
-## 🌐 Deploying to Vercel
-
-Vercel is the recommended hosting platform for Vite/React applications. Follow these steps for a zero-configuration deployment:
-
-1. Sign up/Log in to [Vercel](https://vercel.com/).
-2. Click **Add New...** > **Project** from your Vercel Dashboard.
-3. Import your GitHub repository (`Piyush-gour/Portfolio-PiyushGour`).
-4. **CRITICAL CONFIGURATION:** Under the "Configure Project" section, you must change the **Root Directory** from the default `./` to `frontend`.
-   - Click Edit next to Root Directory.
-   - Select `frontend` and click Save.
-5. Ensure the Framework Preset is set to **Vite**.
-6. Click **Deploy**. Vercel will automatically run `npm install` and `npm run build` from inside your `frontend` folder, and provision a live HTTPS URL within 60 seconds!
-
 ## 📬 Contact
 
 If you'd like to reach out, feel free to use the contact form within the live portfolio or message me directly on LinkedIn.
