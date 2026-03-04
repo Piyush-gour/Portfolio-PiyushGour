@@ -9,6 +9,7 @@ import Process from './components/Process';
 import Blog from './components/Blog';
 import CodeShowcase from './components/CodeShowcase';
 import Projects from './components/Projects';
+import UiUxShowcase from './components/UiUxShowcase';
 import Experience from './components/Experience';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
@@ -63,6 +64,7 @@ function App() {
           <Blog />
           <CodeShowcase />
           <Projects />
+          <UiUxShowcase />
           <Experience />
           <Contact />
           <Footer />
