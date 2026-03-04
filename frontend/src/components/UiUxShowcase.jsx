@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { PenTool, Layout, Image as ImageIcon } from 'lucide-react';
+import { PenTool, Layout, Image as ImageIcon, ChevronLeft, ChevronRight } from 'lucide-react';
 
 // Import Assets
 import legalsathiImg from '../assets/legatsathi website image.png';
@@ -15,32 +15,103 @@ import dream11Img from '../assets/graphic design/DREAM 11.jpg';
 import netflixImg from '../assets/graphic design/Netflix.jpg';
 import boatImg from '../assets/graphic design/BOAT.jpg';
 import rachnaImg from '../assets/graphic design/RACHNA 2023.jpg';
+import slice17Img from '../assets/graphic design/Slice 17.png';
+import sliceWerImg from '../assets/graphic design/Slice 1WERER.png';
 
 const categories = ['All', 'UI/UX Design', 'Social Media / Graphics'];
 
+const ImageCarousel = ({ images }) => {
+    const [currentIndex, setCurrentIndex] = useState(0);
+
+    const nextSlide = (e) => {
+        e.stopPropagation();
+        setCurrentIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
+    };
+
+    const prevSlide = (e) => {
+        e.stopPropagation();
+        setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
+    };
+
+    return (
+        <div className="relative w-full h-full group/carousel overflow-hidden">
+            <AnimatePresence mode="wait">
+                <motion.img
+                    key={currentIndex}
+                    src={images[currentIndex]}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.4 }}
+                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
+                />
+            </AnimatePresence>
+
+            {/* Arrows */}
+            <div className="absolute inset-y-0 left-0 flex items-center px-4 opacity-0 group-hover/carousel:opacity-100 transition-opacity z-20">
+                <button onClick={prevSlide} className="p-2 rounded-full bg-black/60 text-white hover:bg-black/90 backdrop-blur-md transition-all scale-90 hover:scale-100 shadow-xl">
+                    <ChevronLeft size={20} strokeWidth={3} />
+                </button>
+            </div>
+            <div className="absolute inset-y-0 right-0 flex items-center px-4 opacity-0 group-hover/carousel:opacity-100 transition-opacity z-20">
+                <button onClick={nextSlide} className="p-2 rounded-full bg-black/60 text-white hover:bg-black/90 backdrop-blur-md transition-all scale-90 hover:scale-100 shadow-xl">
+                    <ChevronRight size={20} strokeWidth={3} />
+                </button>
+            </div>
+
+            {/* Dots */}
+            <div className="absolute bottom-[110px] inset-x-0 flex justify-center gap-2 z-20">
+                {images.map((_, idx) => (
+                    <div key={idx} className={`w-2 h-2 shadow-sm rounded-full transition-all duration-300 ${idx === currentIndex ? 'bg-teal-400 w-6' : 'bg-white/60'}`} />
+                ))}
+            </div>
+        </div>
+    );
+};
+
+const FigmaPresentation = ({ topImage, bottomImage }) => (
+    <div className="w-full h-full bg-[#1e1e1e] p-6 flex flex-col gap-4 overflow-hidden relative group-hover:scale-[1.03] transition-transform duration-700 ease-out">
+        <div className="w-full h-[48%] rounded-xl overflow-hidden shadow-2xl border border-white/10 relative">
+            <img src={topImage} className="w-full object-cover object-top h-full hover:object-bottom transition-all duration-[5000ms] ease-in-out" alt="Figma Layout 1" />
+        </div>
+        <div className="w-full h-[48%] rounded-xl overflow-hidden shadow-2xl border border-white/10 relative">
+            <img src={bottomImage} className="w-full object-cover object-top h-full hover:object-bottom transition-all duration-[5000ms] ease-in-out" alt="Figma Layout 2" />
+        </div>
+        {/* Figma UI Chrome */}
+        <div className="absolute top-2.5 left-3.5 flex gap-1.5 opacity-60">
+            <div className="w-2.5 h-2.5 rounded-full bg-[#ff5f56]"></div>
+            <div className="w-2.5 h-2.5 rounded-full bg-[#ffbd2e]"></div>
+            <div className="w-2.5 h-2.5 rounded-full bg-[#27c93f]"></div>
+        </div>
+    </div>
+);
+
 const showcaseItems = [
+    {
+        id: 'figma-legalsathi',
+        title: "LegalSathi & Portfolio Mockups",
+        category: "UI/UX Design",
+        isFigma: true,
+        topImage: slice17Img,
+        bottomImage: sliceWerImg,
+        description: "High-fidelity Figma layouts showcasing modern, sleek web architecture.",
+        span: "col-span-1 md:col-span-2 row-span-2"
+    },
+    {
+        id: 'social-carousel',
+        title: "Brand Promotions Archive",
+        category: "Social Media / Graphics",
+        isCarousel: true,
+        images: [dream11Img, netflixImg, boatImg],
+        description: "Instagram-style swipeable carousel featuring key promotional creatives for major brands.",
+        span: "col-span-1 md:col-span-2 row-span-2"
+    },
     {
         id: 'frutte',
         title: "Frutte Brand Campaign",
         category: "Social Media / Graphics",
         image: frutteImg,
         description: "My first successful freelance project! Complete graphic design and creative direction for the Frutte brand.",
-        span: "col-span-1 md:col-span-2 row-span-2"
-    },
-    {
-        id: 1,
-        title: "LegalSathi Platform",
-        category: "UI/UX Design",
-        image: legalsathiImg,
-        description: "Full-stack legal consultation platform interface.",
-        span: "col-span-1 md:col-span-1 row-span-1"
-    },
-    {
-        id: 'dream11',
-        title: "Dream 11 Creative",
-        category: "Social Media / Graphics",
-        image: dream11Img,
-        description: "High-impact promotional graphic for fantasy sports.",
         span: "col-span-1 md:col-span-1 row-span-1"
     },
     {
@@ -52,27 +123,11 @@ const showcaseItems = [
         span: "col-span-1 md:col-span-1 row-span-1"
     },
     {
-        id: 'netflix',
-        title: "Netflix Ad Concept",
-        category: "Social Media / Graphics",
-        image: netflixImg,
-        description: "Key visual and social media advertisement concept.",
-        span: "col-span-1 md:col-span-2 row-span-1"
-    },
-    {
         id: 3,
         title: "Dashboard Concept UI",
         category: "UI/UX Design",
         image: desktopImg,
         description: "Modern desktop application dashboard interface layout.",
-        span: "col-span-1 md:col-span-1 row-span-1"
-    },
-    {
-        id: 'boat',
-        title: "boAt Product Graphic",
-        category: "Social Media / Graphics",
-        image: boatImg,
-        description: "Product marketing creative for audio accessories.",
         span: "col-span-1 md:col-span-1 row-span-1"
     },
     {
@@ -185,24 +240,30 @@ const UiUxShowcase = () => {
                                 transition={{ duration: 0.4, type: "spring", bounce: 0.2 }}
                                 className={`relative group rounded-3xl overflow-hidden bg-slate-200 dark:bg-[#121214] border border-slate-200 dark:border-white/10 shadow-lg ${item.span}`}
                             >
-                                <img
-                                    src={item.image}
-                                    alt={item.title}
-                                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
-                                />
+                                {item.isCarousel ? (
+                                    <ImageCarousel images={item.images} />
+                                ) : item.isFigma ? (
+                                    <FigmaPresentation topImage={item.topImage} bottomImage={item.bottomImage} />
+                                ) : (
+                                    <img
+                                        src={item.image}
+                                        alt={item.title}
+                                        className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
+                                    />
+                                )}
 
                                 {/* Lighter overlay gradient for much better image readability */}
-                                <div className="absolute inset-x-0 bottom-0 h-3/4 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                                <div className={`absolute inset-x-0 bottom-0 h-3/4 bg-gradient-to-t ${item.isFigma ? 'from-[#1e1e1e] via-[#1e1e1e]/80' : 'from-black/90 via-black/40'} to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-10`}></div>
 
                                 {/* Hover Content */}
-                                <div className="absolute inset-0 p-6 md:p-8 flex flex-col justify-end translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 ease-out">
-                                    <span className="text-teal-400 font-semibold text-xs tracking-wider uppercase mb-1 md:mb-2 drop-shadow-md">
+                                <div className="absolute inset-0 p-6 md:p-8 flex flex-col justify-end translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 ease-out z-20 pointer-events-none">
+                                    <span className={`font-semibold text-xs tracking-wider uppercase mb-1 md:mb-2 drop-shadow-md ${item.isFigma ? 'text-teal-300' : 'text-teal-400'}`}>
                                         {item.category}
                                     </span>
-                                    <h3 className="text-white text-xl md:text-2xl font-bold mb-1 md:mb-2 drop-shadow-lg leading-tight">
+                                    <h3 className={`text-xl md:text-2xl font-bold mb-1 md:mb-2 drop-shadow-lg leading-tight ${item.isFigma ? 'text-white' : 'text-white'}`}>
                                         {item.title}
                                     </h3>
-                                    <p className="text-slate-200 text-sm line-clamp-2 drop-shadow-md font-medium">
+                                    <p className={`text-sm line-clamp-2 drop-shadow-md font-medium ${item.isFigma ? 'text-slate-300' : 'text-slate-200'}`}>
                                         {item.description}
                                     </p>
                                 </div>
