@@ -9,16 +9,39 @@ import vritantImg from '../assets/Vritant.png';
 import mondayModelsImg from '../assets/Monday Models.png';
 import esummitImg from '../assets/esummit23.png';
 
+// New Graphic Design Assets
+import frutteImg from '../assets/graphic design/Frutte.png';
+import dream11Img from '../assets/graphic design/DREAM 11.jpg';
+import netflixImg from '../assets/graphic design/Netflix.jpg';
+import boatImg from '../assets/graphic design/BOAT.jpg';
+import rachnaImg from '../assets/graphic design/RACHNA 2023.jpg';
+
 const categories = ['All', 'UI/UX Design', 'Social Media / Graphics'];
 
 const showcaseItems = [
+    {
+        id: 'frutte',
+        title: "Frutte Brand Campaign",
+        category: "Social Media / Graphics",
+        image: frutteImg,
+        description: "My first successful freelance project! Complete graphic design and creative direction for the Frutte brand.",
+        span: "col-span-1 md:col-span-2 row-span-2"
+    },
     {
         id: 1,
         title: "LegalSathi Platform",
         category: "UI/UX Design",
         image: legalsathiImg,
         description: "Full-stack legal consultation platform interface.",
-        span: "col-span-1 md:col-span-2 row-span-2"
+        span: "col-span-1 md:col-span-1 row-span-1"
+    },
+    {
+        id: 'dream11',
+        title: "Dream 11 Creative",
+        category: "Social Media / Graphics",
+        image: dream11Img,
+        description: "High-impact promotional graphic for fantasy sports.",
+        span: "col-span-1 md:col-span-1 row-span-1"
     },
     {
         id: 2,
@@ -29,11 +52,27 @@ const showcaseItems = [
         span: "col-span-1 md:col-span-1 row-span-1"
     },
     {
+        id: 'netflix',
+        title: "Netflix Ad Concept",
+        category: "Social Media / Graphics",
+        image: netflixImg,
+        description: "Key visual and social media advertisement concept.",
+        span: "col-span-1 md:col-span-2 row-span-1"
+    },
+    {
         id: 3,
         title: "Dashboard Concept UI",
         category: "UI/UX Design",
         image: desktopImg,
         description: "Modern desktop application dashboard interface layout.",
+        span: "col-span-1 md:col-span-1 row-span-1"
+    },
+    {
+        id: 'boat',
+        title: "boAt Product Graphic",
+        category: "Social Media / Graphics",
+        image: boatImg,
+        description: "Product marketing creative for audio accessories.",
         span: "col-span-1 md:col-span-1 row-span-1"
     },
     {
@@ -51,6 +90,14 @@ const showcaseItems = [
         image: esummitImg,
         description: "Promotional creatives and digital assets for major collegiate summit.",
         span: "col-span-1 md:col-span-2 row-span-1"
+    },
+    {
+        id: 'rachna',
+        title: "Rachna 2023 Visuals",
+        category: "Social Media / Graphics",
+        image: rachnaImg,
+        description: "Event branding and social media graphics for Rachna tech fest.",
+        span: "col-span-1 md:col-span-1 row-span-1"
     }
 ];
 
@@ -114,8 +161,8 @@ const UiUxShowcase = () => {
                             key={category}
                             onClick={() => setActiveCategory(category)}
                             className={`px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300 flex items-center gap-2 ${activeCategory === category
-                                    ? 'bg-slate-900 dark:bg-white text-white dark:text-black shadow-lg scale-105'
-                                    : 'bg-white dark:bg-[#1a1a1e] text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-[#232328] border border-slate-200 dark:border-white/5'
+                                ? 'bg-slate-900 dark:bg-white text-white dark:text-black shadow-lg scale-105'
+                                : 'bg-white dark:bg-[#1a1a1e] text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-[#232328] border border-slate-200 dark:border-white/5'
                                 }`}
                         >
                             {category === 'UI/UX Design' && <Layout className="w-4 h-4" />}
