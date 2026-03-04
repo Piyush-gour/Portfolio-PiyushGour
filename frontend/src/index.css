@@ -22,6 +22,11 @@
   font-family: 'Montserrat', sans-serif;
 }
 
+html {
+  font-size: 80%;
+  /* Scales down the entire UI (Tailwind rems) to simulate an 80% zoom out */
+}
+
 html,
 body {
   margin: 0;
