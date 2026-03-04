@@ -163,7 +163,7 @@ const Hero = () => {
                     <span className={`relative inline-flex w-2 h-2 rounded-full ${isAvailable ? 'bg-green-600 dark:bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.8)]' : 'bg-red-600 dark:bg-red-500 shadow-[0_0_8px_rgba(239,68,68,0.8)]'}`}></span>
                 </div>
                 <span className="text-sm font-medium text-slate-600 dark:text-[#a1a1aa] tracking-wide transition-colors">
-                    {isAvailable ? 'Available for freelancing' : 'Unavailable for work'}
+                    {isAvailable ? 'Available for freelancing' : 'Unavailable for work from 11 PM to 9 AM'}
                 </span>
             </div>
         </div>

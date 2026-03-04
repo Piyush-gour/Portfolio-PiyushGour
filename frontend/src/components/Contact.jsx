@@ -183,7 +183,7 @@ const Contact = () => {
                             <span className={`absolute inline-flex w-full h-full rounded-full opacity-75 animate-ping ${isAvailable ? 'bg-green-500 dark:bg-green-400' : 'bg-red-500 dark:bg-red-400'}`}></span>
                             <span className={`relative inline-flex w-2 h-2 rounded-full ${isAvailable ? 'bg-green-600 dark:bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.8)]' : 'bg-red-600 dark:bg-red-500 shadow-[0_0_8px_rgba(239,68,68,0.8)]'}`}></span>
                         </div>
-                        {isAvailable ? 'Available for Work' : 'Unavailable for work'}
+                        {isAvailable ? 'Available for Work' : 'Unavailable for work from 11 PM to 9 AM'}
                     </div>
                     {isAvailable && <span className="hidden sm:inline-block text-slate-300 dark:text-[#3f3f46] transition-colors">|</span>}
                     {isAvailable && <span>Response within 24 hours</span>}

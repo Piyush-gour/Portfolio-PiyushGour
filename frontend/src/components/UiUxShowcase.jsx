@@ -188,21 +188,21 @@ const UiUxShowcase = () => {
                                 <img
                                     src={item.image}
                                     alt={item.title}
-                                    className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-700 ease-out"
+                                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
                                 />
 
-                                {/* Overlay gradient for text readability */}
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                                {/* Lighter overlay gradient for much better image readability */}
+                                <div className="absolute inset-x-0 bottom-0 h-3/4 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
                                 {/* Hover Content */}
-                                <div className="absolute inset-0 p-8 flex flex-col justify-end translate-y-8 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 ease-out">
-                                    <span className="text-teal-400 font-semibold text-xs tracking-wider uppercase mb-2">
+                                <div className="absolute inset-0 p-6 md:p-8 flex flex-col justify-end translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 ease-out">
+                                    <span className="text-teal-400 font-semibold text-xs tracking-wider uppercase mb-1 md:mb-2 drop-shadow-md">
                                         {item.category}
                                     </span>
-                                    <h3 className="text-white text-2xl font-bold mb-2">
+                                    <h3 className="text-white text-xl md:text-2xl font-bold mb-1 md:mb-2 drop-shadow-lg leading-tight">
                                         {item.title}
                                     </h3>
-                                    <p className="text-slate-300 text-sm line-clamp-2">
+                                    <p className="text-slate-200 text-sm line-clamp-2 drop-shadow-md font-medium">
                                         {item.description}
                                     </p>
                                 </div>
